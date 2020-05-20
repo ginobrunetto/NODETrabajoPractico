@@ -11,7 +11,9 @@ var letter
 var contador = 0;
 
 rl.question("Escribe tu path:", function(aa) {
-    filesGivenPath = fs.readdirSync(aa);
+    filesGivenPath = fs.readdirSync(aa,(err, files)=>{
+        (err) ? console.log(err): console.log('async',files);
+    });
     rl.question("Elige una letra:", function(bb) {
         letter = bb;
          rl.close();
